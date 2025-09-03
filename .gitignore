@@ -1,0 +1,26 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# Environnement
+.env
+.env.local
+.env.production
+
+# Cache
+/app/cache/*
+/var/cache/*
+*.tmp
+
+# Logs
+*.log
+/logs/
+
+# Système
+.DS_Store
+.idea/
+Thumbs.db
+
+# Uploads (si applicable)
+/uploads/
+/public/uploads/
