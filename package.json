@@ -13,6 +13,5 @@
   },
   "engines": {
     "node": "18.x"
-  },
-  "//": "Deployment fix: added start script"  // ← AJOUTEZ CETTE LIGNE
-}// Cloud Run deployment configuration
+  }
+}
