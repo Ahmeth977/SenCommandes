@@ -23,19 +23,17 @@ jobs:
         project_id: sencommandes
 
     - name: Build and Deploy to Cloud Run
-      run: |-
-        # Build et push de l'image Docker
-        gcloud builds submit --tag gcr.io/sencommandes/mon-app .
-        
-        # Déploiement sur Cloud Run avec variables d'environnement MySQL
-        gcloud run deploy mon-app \
-          --image gcr.io/sencommandes/mon-app \
-          --platform managed \
-          --region europe-west1 \
-          --allow-unauthenticated \
-          --port 8080 \
-          --set-env-vars="DB_HOST=your-mysql-host" \
-          --set-env-vars="DB_NAME=your-database-name" \
-          --set-env-vars="DB_USER=your-username" \
-          --set-env-vars="DB_PASS=your-password" \
-          --add-cloudsql-instances=your-project:region:instance-name
+  run: |-
+    gcloud builds submit --tag gcr.io/sencommandes/mon-app .
+    
+    gcloud run deploy mon-app \
+      --image gcr.io/sencommandes/mon-app \
+      --platform managed \
+      --region europe-west1 \
+      --allow-unauthenticated \
+      --port 8080 \
+      --set-env-vars="DB_HOST=your-mysql-host" \
+      --set-env-vars="DB_NAME=resto_platform" \  # ← Changé avec underscore
+      --set-env-vars="DB_USER=your-username" \
+      --set-env-vars="DB_PASS=your-password" \
+      --add-cloudsql-instances=your-project:region:instance-name
