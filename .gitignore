@@ -24,3 +24,8 @@ Thumbs.db
 # Uploads (si applicable)
 /uploads/
 /public/uploads/
+google-cloud-sdk/google-cloud-sdk/
+backups/
+doubbuild.yaml
+google-cloud-sdk.zip
+scripts/
