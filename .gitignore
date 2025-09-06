@@ -29,3 +29,5 @@ backups/
 doubbuild.yaml
 google-cloud-sdk.zip
 scripts/
+google-cloud-sdk/
+includes/upload_security.php

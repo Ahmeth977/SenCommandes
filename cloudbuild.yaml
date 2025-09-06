@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/sencommandes/mon-app', '-f', 'Dockerfile', '.']
+images:
+- 'gcr.io/sencommandes/mon-app'
