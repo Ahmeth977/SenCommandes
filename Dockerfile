@@ -3,14 +3,11 @@ FROM php:8.2-apache
 # Copier les fichiers de l'application
 COPY . /var/www/html/
 
-# Configurer Apache pour utiliser le port de Cloud Run
-RUN echo "Listen \${PORT}" > /etc/apache2/ports.conf
-RUN a2enmod rewrite
+# Configurer Apache pour utiliser le port de Cloud Run (8080)
+RUN sed -i 's/80/8080/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
 
-# Définir le document root
-ENV APACHE_DOCUMENT_ROOT /var/www/html
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
-RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+# Définir les permissions
+RUN chown -R www-data:www-data /var/www/html
 
-# Exposer le port (Cloud Run utilisera le port défini par la variable PORT)
+# Exposer le port 8080
 EXPOSE 8080
