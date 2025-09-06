@@ -32,4 +32,5 @@ jobs:
           --image gcr.io/sencommandes/mon-app \
           --platform managed \
           --region europe-west1 \
-          --allow-unauthenticated
+          --allow-unauthenticated \
+          --port 8080
